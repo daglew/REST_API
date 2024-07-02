@@ -2,6 +2,7 @@ import json
 import jsonpath
 import openpyxl
 from data_driven import library
+import requests
 
 
 def test_add_multiple_students():
@@ -9,22 +10,13 @@ def test_add_multiple_students():
     file = open('C:\\Users\\dagle\\OneDrive\\Dokumenty\\API\\create_new_student.json')
     json_request = json.loads(file.read())
 
-    for i in range(2, rows+1):
-        first_name_cell = sh.cell(rov=i, column=1)
-        midd_name_cell = sh.cell(rov=i, column=2)
-        last_name_cell = sh.cell(rov=i, column=3)
-        data_cell = sh.cell(rov=i, column=4)
+    obj = library.Common('C:\\Users\\dagle\\OneDrive\\Dokumenty\\API)
+    col = obj.fetch_column_count()
+    row = obj.fetch_column_count()
+    key_list = obj.fetch_key_names()
 
-        json_request['first_name'] = first_name_cell.value
-        json_request['midd_name_cell'] = midd_name_cell.value
-        json_request['last_name_cell'] = last_name_cell.value
-        json_request['data_cell'] = data_cell.value
-
-        response = requests.post(api_url, json_request)
-
-        print(response.text)
-        print(response.status_code)
-        assert response.status_code == 201
-
-
+    for i in range(2, row+1):
+        updated_json_request = obj.update_request_with_data(i, jason_request, key_list)
+        response = requests.post(api_url, updated_json_request)
+        print(response)
 
