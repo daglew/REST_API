@@ -31,7 +31,7 @@ class Common:
     def update_request_with_data(self, row_number, jason_request, key_list):
         c = sh.max_column
         for i in range(1, c+1):
-            cell = sh.cell(row = row_number, column = i)
+            cell = sh.cell(row=row_number, column=i)
             jason_request[key_list[i-1]] = cell.value
 
         return jason_request

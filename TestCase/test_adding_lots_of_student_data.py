@@ -9,7 +9,7 @@ def test_adding_lots_of_student_data():
     file = open('C:\\Users\\dagle\\OneDrive\\Dokumenty\\API\\create_new_student.json')
     json_request = json.loads(file.read())
 
-    wk = openpyxl.load_workbook('C:\\Users\\dagle\\OneDrive\\Dokumenty\\API\\table2')
+    wk = openpyxl.load_workbook('C:\\Users\\dagle\\OneDrive\\Dokumenty\\API\\table2.xlsx')
     sh = wk['Sheet1']
     rows = sh.max_row
 
