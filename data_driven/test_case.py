@@ -10,7 +10,7 @@ def test_add_multiple_students():
     file = open('C:\\Users\\dagle\\OneDrive\\Dokumenty\\API\\create_new_student.json')
     json_request = json.loads(file.read())
 
-    obj = library.Common('C:\\Users\\dagle\\OneDrive\\Dokumenty\\API\\table2.xlsx')
+    obj = library.Common('C:\\Users\\dagle\\OneDrive\\Dokumenty\\API\\table2.xlsx', 'Sheet1')
     col = obj.fetch_column_count()
     row = obj.fetch_column_count()
     key_list = obj.fetch_key_names()
