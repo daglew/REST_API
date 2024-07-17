@@ -8,7 +8,7 @@ def new_student_add():
     file = open('C:/Users/dagle/OneDrive/Dokumenty/API/student_add.json')
     json_request = json.loads(file.read())
     response = requests.post(api_url, json_request)
-    id = jsonpath.jsonpath((response.json(), 'id'))
+    id = jsonpath.jsonpath(response.json(), 'id')
     print(id[0])
 
 
